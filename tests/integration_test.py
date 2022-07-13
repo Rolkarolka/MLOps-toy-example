@@ -1,4 +1,7 @@
+import sys
+sys.path.append(".")
 from Orchestrator import Orchestrator
+
 from clothPredictionModule import FashionNet, FashionNetAdapter
 import pytest
 import torch
