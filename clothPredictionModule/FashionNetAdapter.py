@@ -14,7 +14,7 @@ class FashionNetAdapter:
     def __init__(self):
         self.transform = transforms.Compose([transforms.ToTensor()])
         batch_size = 256
-        self.dir_path = "./model"
+        self.dir_path = "./saved_models"
         self.model_path = self.dir_path + "/fashionNet"
         self.trainset = FashionMNIST(root="data/", train=True, transform=self.transform, download=True)
         self.trainloader = torch.utils.data.DataLoader(self.trainset, batch_size=batch_size, shuffle=True, drop_last=True)
