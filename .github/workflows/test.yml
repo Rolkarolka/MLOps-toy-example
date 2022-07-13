@@ -25,7 +25,7 @@ jobs:
       
       - name: Run pytest
         run: |
-          pytest matrix.module
+          pytest ${{ matrix.module }}
 
   integration-test:
     name: Integration tests
