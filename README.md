@@ -1,1 +1,2 @@
-# visum-project
+# MLOps toy example
+
