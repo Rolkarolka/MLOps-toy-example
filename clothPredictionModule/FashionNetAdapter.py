@@ -18,10 +18,10 @@ class FashionNetAdapter:
         self.model_path = self.dir_path + "/fashionNet"
         self.trainset = FashionMNIST(root="data/", train=True, transform=self.transform, download=True)
         self.trainloader = torch.utils.data.DataLoader(self.trainset, batch_size=batch_size, shuffle=True, drop_last=True)
-        self.fashion_net = self._prepare_model()
+        self.fashion_net = self.prepare_model()
 
 
-    def _prepare_model(self):
+    def prepare_model(self):
         model = FashionNet()
         if os.path.isfile(self.model_path):
             model.load_state_dict(torch.load(self.model_path))

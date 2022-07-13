@@ -1,8 +1,6 @@
 import pytest
 
 from inputUnderstandingModule import InputUnderstandingAdapter
-from torchvision import datasets
-
 @pytest.fixture
 def input_understanding():
     return InputUnderstandingAdapter()
