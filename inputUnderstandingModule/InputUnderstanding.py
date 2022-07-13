@@ -1,5 +1,5 @@
 
-from torchvision import datasets, transforms
+from torchvision import datasets
 
 class InputUnderstanding:
     def __init__(self):
