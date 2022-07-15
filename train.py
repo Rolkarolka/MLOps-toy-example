@@ -63,4 +63,4 @@ confmat(predictions, targets)
 with open("metrics.txt", "w") as outfile:
     outfile.write("Accuracy: " + str(accuracy_score.item()) + "\n")
     outfile.write("Confusion matrix:" + "\n")
-    outfile.write(str(confmat.confmat.item()) + "\n")
+    outfile.write(str(confmat.confmat.tolist()) + "\n")
