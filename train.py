@@ -2,8 +2,8 @@ from clothPredictionModule import FashionNet, FashionNetAdapter
 import os
 import torch
 from torchvision import datasets, transforms
-from torchmetrics.functional import f1, accuracy
-from torchmetrics import ConfusionMatrix
+# from torchmetrics.functional import f1, accuracy
+from torchmetrics import ConfusionMatrix, Accuracy, F1Score
 import torch.optim as optim
 import torch.nn as nn
 
@@ -46,15 +46,20 @@ print('Finished Evaulation')
 targets = torch.cat(targets)
 predictions = torch.cat(predictions)
 # preparing raport
-accuracy_score = accuracy(predictions, targets, num_classes=10)
-print(accuracy_score)
 
-f1_score = f1(predictions, targets, num_classes=10)
-print(f1_score)
+# accuracy_score = accuracy(predictions, targets, num_classes=10)
+# print(accuracy_score)
+accuracy = Accuracy(num_classes=10)
+accuracy_score = accuracy(predictions, targets)
+
+# f1_score = f1(predictions, targets, num_classes=10)
+# print(f1_score)
+f1 = F1Score(num_classes=10)
+f1_score = f1(predictions, targets)
 
 confmat = ConfusionMatrix(num_classes=10)
 confmat(predictions, targets)  
-print(confmat.confmat)
+
 with open("metrics.txt", "w") as outfile:
     outfile.write("Accuracy: " + str(accuracy_score) + "\n")
     outfile.write("F1 score: " + str(f1_score) + "\n")
