@@ -59,8 +59,10 @@ f1_score = f1(predictions, targets)
 
 confmat = ConfusionMatrix(num_classes=10)
 confmat(predictions, targets)  
+confmat = confmat.confmat.tolist()
 
 with open("metrics.txt", "w") as outfile:
-    outfile.write("Accuracy: " + str(accuracy_score.item()) + "\n")
+    outfile.write("Accuracy: " + str(round(accuracy_score.item(), 3)) + "\n")
     outfile.write("Confusion matrix:" + "\n")
-    outfile.write(str(confmat.confmat.tolist()) + "\n")
+    for l in confmat:
+        outfile.write(str(l) + "\n")
