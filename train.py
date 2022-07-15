@@ -14,7 +14,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.1)
 trainset = datasets.FashionMNIST(root="data/", train=True, transform=transform, download=True)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=256, shuffle=True, drop_last=True)
-for _ in range(10): 
+for i in range(1): 
     for data in trainloader:
         inputs, labels = data
         optimizer.zero_grad()
@@ -22,6 +22,7 @@ for _ in range(10):
         loss = criterion(outputs, labels)
         loss.backward()
         optimizer.step()
+    print(f"Training Epoch {i}")
 print('Finished Training')
 torch.save(model.state_dict(), "./saved_models/fashionNet")
 

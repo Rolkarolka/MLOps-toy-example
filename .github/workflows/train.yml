@@ -1,4 +1,4 @@
-name: train
+name: Train
 on: [push]
 jobs:
   train-model:
@@ -24,6 +24,8 @@ jobs:
           python train.py
       
       - name: Create CML report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cat metrics.txt >> report.md
           cml send-comment report.md
