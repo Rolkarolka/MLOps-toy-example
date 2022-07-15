@@ -31,7 +31,6 @@ torch.save(model.state_dict(), "./saved_models/fashionNet")
 test_dataset = datasets.FashionMNIST('./data', download=True, transform=transform, train=False)
 testloader = torch.utils.data.DataLoader(test_dataset, batch_size=256, shuffle=False)
 transform = transforms.Compose([transforms.ToTensor()])
-print(len(test_dataset))
 targets = []
 predictions = []
 with torch.no_grad():

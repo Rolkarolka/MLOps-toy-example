@@ -14,11 +14,16 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.x"
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
 
       - name: Train model
         run: |
-          pip3 install -r requirements.txt
           python train.py
-          # Create CML report
+      
+      - name: Create CML report
+        run: |
           cat metrics.txt >> report.md
           cml send-comment report.md
