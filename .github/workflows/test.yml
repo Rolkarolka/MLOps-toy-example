@@ -1,4 +1,4 @@
-name: PyTest
+name: Test
 on: push
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
           pytest ${{ matrix.module }}
 
   integration-test:
-    name: Integration tests
+    name: Narrow Integration tests
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
