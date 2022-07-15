@@ -14,7 +14,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.1)
 trainset = datasets.FashionMNIST(root="data/", train=True, transform=transform, download=True)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=256, shuffle=True, drop_last=True)
-for i in range(1): 
+for i in range(10): 
     for data in trainloader:
         inputs, labels = data
         optimizer.zero_grad()
