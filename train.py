@@ -1,4 +1,4 @@
-from clothPredictionModule import FashionNet, FashionNetAdapter
+from clothPredictionModule import FashionNet
 import os
 import torch
 from torchvision import datasets, transforms
@@ -63,4 +63,4 @@ confmat(predictions, targets)
 with open("metrics.txt", "w") as outfile:
     outfile.write("Accuracy: " + str(accuracy_score) + "\n")
     outfile.write("F1 score: " + str(f1_score) + "\n")
-    outfile.write("Confusion matrix: " + str(confmat.confmat) + "\n")
+    outfile.write("Confusion matrix: " + "\n" + str(confmat.confmat) + "\n")
